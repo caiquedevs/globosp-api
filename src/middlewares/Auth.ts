@@ -14,7 +14,7 @@ class Authentication {
         return res.status(401).json({ error: "Unauthorized access" });
       }
 
-      const data: any = jwt.verify(token, process.env.KEYJWT);
+      const data: any = jwt.verify(token, process.env.KEYJWT || "");
       const { phone } = data;
 
       const currentUser: any = Connection.findOne({ phone });

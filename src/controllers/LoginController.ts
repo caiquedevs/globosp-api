@@ -5,7 +5,7 @@ import Connection from "../models/user";
 dotenv.config();
 
 class LoginController {
-  async registerUser(req: any, res: any) {
+  async registerUser(req: any, res: any): Promise<LoginController> {
     const Controller = new LoginController();
     const { phone } = req.body;
     const payload = { phone };
@@ -30,9 +30,9 @@ class LoginController {
 
       const token = jwt.sign(
         { _id: user._id, phone: user.phone },
-        process.env.KEYJWT,
+        process.env.KEYJWT || "",
         {
-          expiresIn: process.env.EXPIRATIONJWT,
+          expiresIn: process.env.EXPIRATIONJWT || "",
         }
       );
 

@@ -30,7 +30,7 @@ export default class PostController {
   }
 
   static async create(req: any, res: any) {
-    const img = `${process.env.URLAPI}images/${req.file?.filename}`;
+    const img = `${process.env.URLAPI || ""}images/${req.file?.filename}`;
     const imgName = req.file?.filename;
 
     const payload = {
@@ -53,7 +53,7 @@ export default class PostController {
     const { postId } = req.params;
     const currentPost: any = await Connection.findOne({ _id: postId });
 
-    const img = `${process.env.URLAPI}images/${req.file?.filename}`;
+    const img = `${process.env.URLAPI || ""}images/${req.file?.filename}`;
     const imgName = req.file?.filename;
 
     const payload: any = {

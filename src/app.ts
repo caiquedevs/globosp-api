@@ -24,9 +24,9 @@ app.get("/", (req, res) => {
   res.json("GloboSP API");
 });
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3333;
 
-app.listen(process.env.PORT, () => {
+app.listen(port, () => {
   console.log("-----------------------------------------------------");
   console.log(` Servidor ativo com sucesso em: http://localhost:${port}`);
   console.log("-----------------------------------------------------");
