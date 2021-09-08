@@ -6,7 +6,7 @@ import path from "path";
 import mongoose from "mongoose";
 
 dotenv.config();
-mongoose.connect(process.env.MONGO_URI);
+mongoose.connect(process.env.MONGO_URI || "");
 
 const app = express();
 
